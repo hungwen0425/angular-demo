@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Form } from '@angular/forms';
+import { Http, Jsonp } from '@angular/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  form: Form;
+  account: string;
+  password: string;
+  data: [
+    { userName: '张三', password: 12 }
+  ];
+
+  constructor(private http: Http, private jsonp: Jsonp) {
+  }
+
 }

@@ -1,36 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpModule, JsonpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-
-import { HttpClientModule } from '@angular/common/http';
-import { AddCustomerComponent } from './components/add-customer/add-customer.component';
-import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
-import { ListCustomerComponent } from './components/list-customer/list-customer.component';
-
-// Importar rutas
-import { ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
 
-// Importar ReactiveFormsModule para los formularios
-import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AddCustomerComponent,
-    EditCustomerComponent,
-    ListCustomerComponent,
-    LoginComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule,
     RouterModule.forRoot( ROUTES, { useHash: true } ),
-    ReactiveFormsModule
+    JsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class LoginModule { }
