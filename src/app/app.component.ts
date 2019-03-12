@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Form } from '@angular/forms';
 import { Http, Jsonp } from '@angular/http';
+import { UserService } from './service/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +9,20 @@ import { Http, Jsonp } from '@angular/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  form: Form;
-  account: string;
-  password: string;
-  data: [
-    { userName: '张三', password: 12 }
-  ];
 
-  constructor(private http: Http, private jsonp: Jsonp) {
+  form: Form;
+  account = '';
+  password = '';
+
+
+  constructor(private service: UserService, jsonp: Jsonp) {
   }
 
+  login() {
+    console.log('account: ', this.account, 'password: ', this.password);
+    this.service.login(this.account, this.password )
+      .subscribe(data => {
+        console.log('data', data);
+    });
+  }
 }

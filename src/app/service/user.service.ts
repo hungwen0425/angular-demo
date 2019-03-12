@@ -24,18 +24,38 @@ export class UserService {
   }
 
   getCustomer(id: number): Observable<User> {
-    return this.http.get<User>(`${this.baseUrl}/${id}`);
+    return this.http.get<User>(
+      `${this.baseUrl}/${id}`
+    );
   }
 
-  createCustomer(customer: User): Observable<User> {
-    return this.http.post<User>(this.baseUrl, customer, {headers: this.httpHeaders});
+  createCustomer(user: User): Observable<User> {
+    return this.http.post<User>(
+      this.baseUrl,
+      user,
+      {headers: this.httpHeaders}
+    );
   }
 
-  updateCustomer(customer: User): Observable<User> {
-    return this.http.put<User>(this.baseUrl, customer, {headers: this.httpHeaders});
+  updateCustomer(user: User): Observable<User> {
+    return this.http.put<User>(
+      this.baseUrl,
+      user,
+      {headers: this.httpHeaders}
+    );
   }
 
   deleteCustomer(id: number): Observable<User> {
-    return this.http.delete<User>(`${this.baseUrl}/${id}`, {headers: this.httpHeaders});
+    return this.http.delete<User>(
+      `${this.baseUrl}/${id}`,
+      {headers: this.httpHeaders}
+    );
+  }
+
+  login(account: string, password: string): Observable<any> {
+    return this.http.get(
+      `${this.baseUrl}/login/${account}/${password}`,
+      {headers: this.httpHeaders}
+    );
   }
 }
