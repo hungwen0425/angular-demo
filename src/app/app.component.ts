@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Form } from '@angular/forms';
-import { Http, Jsonp } from '@angular/http';
-import { UserService } from './service/user.service';
+import { LoginService } from './service/login.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +14,7 @@ export class AppComponent {
   password = '';
 
 
-  constructor(private service: UserService, jsonp: Jsonp) {
+  constructor(private service: LoginService) {
   }
 
   login() {

@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class LoginService {
 
   private baseUrl = 'http://localhost:8080/api/customers';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
